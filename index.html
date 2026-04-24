@@ -72,76 +72,54 @@
     <!-- Background Gradients -->
     <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-eth-500/20 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/20 rounded-full blur-[120px]">
-        </div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/20 rounded-full blur-[120px]"></div>
     </div>
 
     <!-- Custom Dialog Modal -->
-    <div id="customModal"
-        class="hidden fixed inset-0 z-[200] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4">
-        <div
-            class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl max-w-sm w-full p-6 border border-gray-200 dark:border-slate-700 modal-enter">
+    <div id="customModal" class="hidden fixed inset-0 z-[200] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl max-w-sm w-full p-6 border border-gray-200 dark:border-slate-700 modal-enter">
             <div class="flex items-center gap-4 mb-4">
                 <div id="modalIcon" class="w-12 h-12 rounded-full flex items-center justify-center shrink-0"></div>
                 <h3 id="modalTitle" class="text-xl font-bold tracking-tight text-gray-900 dark:text-white"></h3>
             </div>
-            <p id="modalMessage" class="text-gray-600 dark:text-gray-300 mb-6 text-sm break-words"></p>
-            <div class="flex justify-end gap-3">
-                <button id="btnModalCancel"
-                    class="hidden px-5 py-2.5 rounded-xl font-medium text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-700 transition">Cancel</button>
-                <button id="btnModalConfirm"
-                    class="px-5 py-2.5 rounded-xl font-medium text-white shadow-lg transition transform hover:-translate-y-0.5">OK</button>
+            <p id="modalMessage" class="text-gray-600 dark:text-gray-300 mb-2 text-sm break-words"></p>
+            
+            <!-- Input field added for deposit/withdraw dialogs -->
+            <input type="number" id="modalInput" class="hidden w-full mb-6 bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-eth-500 text-lg font-mono" placeholder="0.0">
+
+            <div class="flex justify-end gap-3 mt-4">
+                <button id="btnModalCancel" class="hidden px-5 py-2.5 rounded-xl font-medium text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-700 transition">Batal</button>
+                <button id="btnModalConfirm" class="px-5 py-2.5 rounded-xl font-medium text-white shadow-lg transition transform hover:-translate-y-0.5">OK</button>
             </div>
         </div>
     </div>
 
     <!-- Loading overlay -->
-    <div id="loadingTx"
-        class="hidden fixed inset-0 z-[100] bg-slate-900/80 backdrop-blur-sm flex items-center justify-center">
+    <div id="loadingTx" class="hidden fixed inset-0 z-[100] bg-slate-900/80 backdrop-blur-sm flex items-center justify-center">
         <div class="text-center">
-            <div class="w-16 h-16 border-4 border-eth-500 border-t-transparent rounded-full animate-spin mx-auto mb-4">
-            </div>
-            <p class="text-lg font-medium animate-pulse">Waiting for transaction...</p>
+            <div class="w-16 h-16 border-4 border-eth-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p class="text-lg font-medium animate-pulse">Memproses Transaksi...</p>
         </div>
     </div>
 
     <!-- Navbar -->
-    <nav
-        class="sticky top-0 z-50 glass border-b border-gray-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center">
+    <nav class="sticky top-0 z-50 glass border-b border-gray-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center">
         <div class="flex items-center gap-2">
-            <div
-                class="w-8 h-8 rounded-full bg-gradient-to-tr from-eth-500 to-purple-500 flex items-center justify-center font-bold text-white shadow-lg">
-                E</div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-eth-500 to-purple-500 flex items-center justify-center font-bold text-white shadow-lg">E</div>
             <span class="font-bold text-xl tracking-tight">Inheritance</span>
         </div>
         <div class="flex items-center gap-4">
-            <div
-                class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700">
-                <code id="viewContract" class="text-xs font-mono text-gray-600 dark:text-slate-400">0x1234...abcd</code>
+            <div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700">
+                <code id="viewContract" class="text-xs font-mono text-gray-600 dark:text-slate-400">0x...</code>
                 <button onclick="copyAddress()" class="hover:text-eth-500 transition-colors p-1" title="Copy Address">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
-                        </path>
-                    </svg>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                 </button>
             </div>
             <button id="themeToggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-800 transition">
-                <svg id="moonIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
-                    </path>
-                </svg>
-                <svg id="sunIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
-                    </path>
-                </svg>
+                <svg id="moonIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                <svg id="sunIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             </button>
-            <button id="btnConnect"
-                class="bg-gradient-to-r from-eth-500 to-blue-600 hover:from-eth-600 hover:to-blue-700 text-white px-5 py-2 rounded-xl font-medium shadow-md transition-all transform hover:scale-105">
+            <button id="btnConnect" class="bg-gradient-to-r from-eth-500 to-blue-600 hover:from-eth-600 hover:to-blue-700 text-white px-5 py-2 rounded-xl font-medium shadow-md transition-all transform hover:scale-105">
                 Connect Wallet
             </button>
         </div>
@@ -152,17 +130,14 @@
 
         <!-- VIEW: Landing -->
         <div id="viewLanding" class="text-center space-y-8 py-20 fade-in">
-            <h1
-                class="text-5xl md:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-eth-500 to-purple-400">
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-eth-500 to-purple-400">
                 Secure Your Crypto Legacy
             </h1>
             <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                A decentralized inheritance protocol. Set a heartbeat, deposit your assets, and ensure your loved ones
-                receive your wealth if you become inactive.
+                Protokol warisan desentralisasi. Atur heartbeat, depositkan asetmu, dan pastikan keluarga menerima hartamu jika sesuatu terjadi padamu.
             </p>
-            <button id="btnConnectBig"
-                class="mt-8 bg-gradient-to-r from-eth-500 to-purple-500 hover:from-eth-600 hover:to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-eth-500/20 transition-all transform hover:-translate-y-1">
-                Connect MetaMask to Start
+            <button id="btnConnectBig" class="mt-8 bg-gradient-to-r from-eth-500 to-purple-500 hover:from-eth-600 hover:to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-eth-500/20 transition-all transform hover:-translate-y-1">
+                Connect MetaMask
             </button>
         </div>
 
@@ -171,39 +146,44 @@
 
             <!-- Tab Navigation -->
             <div class="flex space-x-2 bg-gray-200/50 dark:bg-slate-800/50 p-1 rounded-xl w-fit mx-auto mb-8">
-                <button id="tabMyPlan"
-                    class="px-6 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm font-medium transition-colors">My
-                    Plan</button>
-                <button id="tabClaim"
-                    class="px-6 py-2 rounded-lg hover:bg-white/50 dark:hover:bg-slate-700/50 text-gray-500 dark:text-gray-400 font-medium transition-colors">Claim
-                    Inheritance</button>
+                <button id="tabMyPlan" class="px-6 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm font-medium transition-colors">My Plan</button>
+                <button id="tabClaim" class="px-6 py-2 rounded-lg hover:bg-white/50 dark:hover:bg-slate-700/50 text-gray-500 dark:text-gray-400 font-medium transition-colors">Claim Inheritance</button>
             </div>
 
             <!-- TAB: My Plan -->
             <div id="sectionMyPlan" class="space-y-6">
 
                 <!-- State: No Plan -->
-                <div id="stateNoPlan"
-                    class="hidden glass rounded-3xl p-8 text-center border-dashed border-2 border-gray-300 dark:border-slate-700">
-                    <div
-                        class="w-20 h-20 bg-eth-500/10 rounded-full flex items-center justify-center mx-auto mb-4 text-eth-500">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                        </svg>
+                <div id="stateNoPlan" class="hidden glass rounded-3xl p-8 text-center border-dashed border-2 border-gray-300 dark:border-slate-700">
+                    <div class="w-20 h-20 bg-eth-500/10 rounded-full flex items-center justify-center mx-auto mb-4 text-eth-500">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                     </div>
-                    <h2 class="text-2xl font-bold mb-2">No Active Plan</h2>
-                    <p class="text-gray-500 mb-6">Create a plan by defining an inactivity period (heartbeat).</p>
+                    <h2 class="text-2xl font-bold mb-2">Belum Ada Plan</h2>
+                    <p class="text-gray-500 mb-6">Buat plan warisan dengan mengatur periode inaktivitas (heartbeat).</p>
 
-                    <div class="max-w-sm mx-auto space-y-4">
+                    <div class="max-w-md mx-auto space-y-6">
                         <div class="text-left">
-                            <label class="block text-sm font-medium mb-1">Inactivity Period (in days)</label>
-                            <input type="number" id="inputPeriod"
-                                class="w-full bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-eth-500"
-                                placeholder="e.g. 365" value="365">
+                            <label class="block text-sm font-medium mb-3">Tentukan Waktu Inaktivitas (Timeout)</label>
+                            <div class="grid grid-cols-4 gap-3">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-500 mb-1">Bulan</label>
+                                    <input type="number" id="inpM" min="0" value="0" class="w-full bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-eth-500 text-center font-mono">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-500 mb-1">Hari</label>
+                                    <input type="number" id="inpD" min="0" value="30" class="w-full bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-eth-500 text-center font-mono">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-500 mb-1">Jam</label>
+                                    <input type="number" id="inpH" min="0" value="0" class="w-full bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-eth-500 text-center font-mono">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-500 mb-1">Menit</label>
+                                    <input type="number" id="inpMin" min="0" value="0" class="w-full bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-eth-500 text-center font-mono">
+                                </div>
+                            </div>
                         </div>
-                        <button id="btnCreatePlan"
-                            class="w-full bg-eth-500 hover:bg-eth-600 text-white py-3 rounded-xl font-bold transition shadow-lg shadow-eth-500/30">
+                        <button id="btnCreatePlan" class="w-full bg-eth-500 hover:bg-eth-600 text-white py-3 rounded-xl font-bold transition shadow-lg shadow-eth-500/30">
                             Create Plan
                         </button>
                     </div>
@@ -217,56 +197,59 @@
 
                         <div class="grid md:grid-cols-2 gap-8 items-center relative z-10">
                             <div>
-                                <h3
-                                    class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">
-                                    Time until execution</h3>
-                                <div id="countdownTimer"
-                                    class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-eth-500 to-purple-400 mb-4 font-mono">
+                                <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Sisa Waktu Heartbeat</h3>
+                                <div id="countdownTimer" class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-eth-500 to-purple-400 mb-4 font-mono">
                                     00d 00h 00m 00s
                                 </div>
                                 <div class="flex gap-4 mb-2">
                                     <div>
-                                        <p class="text-xs text-gray-500">Total Balance</p>
-                                        <p class="font-bold text-lg"><span id="lblTotalBalance">0.0</span> ETH</p>
-                                    </div>
-                                    <div>
                                         <p class="text-xs text-gray-500">Allocated</p>
-                                        <p class="font-bold text-lg"><span id="lblAllocated">0.0</span> ETH</p>
+                                        <p class="font-bold text-lg text-emerald-500"><span id="lblAllocated">0.0</span> ETH</p>
+                                    </div>
+                                    <div class="border-l border-gray-300 dark:border-slate-700 pl-4">
+                                        <p class="text-xs text-gray-500">Available to Allocate</p>
+                                        <p class="font-bold text-lg"><span id="lblUnallocated">0.0</span> ETH</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-right">
-                                <p class="text-sm text-gray-500 mb-2">Prove you are active to reset timer</p>
-                                <button id="btnPing"
-                                    class="bg-gradient-to-r from-emerald-400 to-emerald-600 hover:from-emerald-500 hover:to-emerald-700 text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-emerald-500/30 transition transform hover:scale-105 flex items-center gap-2 ml-auto">
-                                    <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                                        </path>
-                                    </svg>
+                            <div class="text-right flex flex-col justify-end h-full">
+                                <p class="text-sm text-gray-500 mb-2">Buktikan Anda aktif dengan reset timer</p>
+                                <button id="btnPing" class="bg-gradient-to-r from-emerald-400 to-emerald-600 hover:from-emerald-500 hover:to-emerald-700 text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-emerald-500/30 transition transform hover:scale-105 flex items-center justify-center gap-2 md:ml-auto">
+                                    <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                                     Ping (Heartbeat)
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Deposit Section -->
-                    <div class="glass rounded-2xl p-6 flex flex-col md:flex-row gap-4 items-end">
-                        <div class="flex-1 w-full">
-                            <label class="block text-sm font-medium mb-1">Deposit ETH to your plan</label>
-                            <input type="number" id="inputDeposit"
-                                class="w-full bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-eth-500"
-                                placeholder="0.0">
+                    <!-- Deposit/Withdraw Section (Wallet Card View) -->
+                    <div class="glass rounded-3xl p-6 relative overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 text-white shadow-xl shadow-slate-900/20">
+                        <!-- Decorative background element -->
+                        <div class="absolute -right-16 -top-16 w-48 h-48 bg-eth-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                        
+                        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div>
+                                <p class="text-sm text-slate-400 font-medium mb-1">Total Plan Balance</p>
+                                <div class="text-4xl font-bold font-mono tracking-tight flex items-baseline gap-2">
+                                    <span id="lblTotalBalanceCard">0.0</span> <span class="text-xl text-eth-400 font-semibold">ETH</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 w-full md:w-auto">
+                                <button id="btnOpenDeposit" class="flex-1 md:flex-none bg-eth-500 hover:bg-eth-600 text-white px-6 py-3 rounded-xl font-bold transition shadow-lg shadow-eth-500/30 flex items-center justify-center gap-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16v-2a2 2 0 012-2h14a2 2 0 012 2v2m-5-4l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                                    Deposit
+                                </button>
+                                <button id="btnOpenWithdraw" class="flex-1 md:flex-none bg-slate-700 hover:bg-slate-600 border border-slate-600 hover:border-slate-500 text-white px-6 py-3 rounded-xl font-bold transition shadow-lg flex items-center justify-center gap-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                    Withdraw
+                                </button>
+                            </div>
                         </div>
-                        <button id="btnDeposit"
-                            class="w-full md:w-auto bg-eth-500 hover:bg-eth-600 text-white px-8 py-3 rounded-xl font-bold transition shadow-lg shadow-eth-500/20">Deposit</button>
                     </div>
 
                     <!-- Beneficiaries Section -->
                     <div id="sectionBeneficiaries" class="hidden glass rounded-3xl p-6">
-                        <h3 class="font-bold text-xl mb-4 border-b border-gray-200 dark:border-slate-700 pb-2">
-                            Beneficiaries</h3>
+                        <h3 class="font-bold text-xl mb-4 border-b border-gray-200 dark:border-slate-700 pb-2">Daftar Ahli Waris</h3>
 
                         <!-- List -->
                         <div class="space-y-3 mb-6" id="listBeneficiaries">
@@ -275,57 +258,60 @@
 
                         <!-- Add form -->
                         <div class="bg-gray-100 dark:bg-slate-800/50 p-4 rounded-xl">
-                            <h4 class="text-sm font-medium mb-3 text-gray-500">Add New Beneficiary</h4>
+                            <h4 class="text-sm font-medium mb-3 text-gray-500">Tambah Ahli Waris Baru</h4>
                             <div class="flex flex-col md:flex-row gap-3">
-                                <input type="text" id="inputBenAddress"
-                                    class="flex-1 bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-eth-500"
-                                    placeholder="0x... Wallet Address">
-                                <input type="number" id="inputBenAmount"
-                                    class="w-full md:w-32 bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-eth-500"
-                                    placeholder="Amount ETH">
-                                <button id="btnAddBen"
-                                    class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded-lg font-medium text-sm transition">Add</button>
+                                <input type="text" id="inputBenAddress" class="flex-1 bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-eth-500" placeholder="0x... Wallet Address">
+                                <input type="number" id="inputBenAmount" class="w-full md:w-32 bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-eth-500" placeholder="Amount ETH">
+                                <button id="btnAddBen" class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded-lg font-medium text-sm transition">Add</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Danger Zone -->
                     <div class="pt-8 text-center">
-                        <button id="btnCancelPlan"
-                            class="text-red-500 hover:text-red-600 font-medium hover:underline text-sm transition">
-                            Cancel Plan & Withdraw All Funds
+                        <button id="btnCancelPlan" class="text-red-500 hover:text-red-600 font-medium hover:underline text-sm transition">
+                            Batalkan Plan & Tarik Semua Dana
                         </button>
                     </div>
                 </div>
             </div>
 
             <!-- TAB: Claim -->
-            <div id="sectionClaim"
-                class="hidden glass rounded-3xl p-8 max-w-xl mx-auto text-center border-t-4 border-purple-500">
-                <div
-                    class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-4 text-purple-500">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z">
-                        </path>
-                    </svg>
+            <div id="sectionClaim" class="hidden glass rounded-3xl p-8 max-w-2xl mx-auto border-t-4 border-purple-500">
+                <div class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-4 text-purple-500">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
                 </div>
-                <h2 class="text-2xl font-bold mb-2">Claim Inheritance</h2>
-                <p class="text-gray-500 mb-6 text-sm">Enter the address of the deceased/inactive parent to claim your
-                    allocated inheritance.</p>
+                <h2 class="text-2xl font-bold mb-2 text-center">Klaim Warisan</h2>
+                <p class="text-gray-500 mb-6 text-sm text-center">Masukkan alamat wallet Pewaris untuk mengecek detail plan dan mengklaim warisanmu.</p>
 
-                <div class="space-y-4 text-left">
-                    <div>
-                        <label class="block text-sm font-medium mb-1">Parent Address</label>
-                        <input type="text" id="inputClaimAddress"
-                            class="w-full bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                            placeholder="0x...">
+                <!-- STEP 1: Check Parent Address -->
+                <div id="claimStep1" class="space-y-4">
+                    <div class="flex flex-col md:flex-row gap-3">
+                        <input type="text" id="inputClaimAddress" class="flex-1 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono" placeholder="0x... Alamat Pewaris">
+                        <button id="btnCheckParent" class="bg-gradient-to-r from-purple-500 to-eth-500 hover:from-purple-600 hover:to-eth-600 text-white px-6 py-3 rounded-xl font-bold transition shadow-lg shadow-purple-500/30 transform hover:-translate-y-0.5 whitespace-nowrap">
+                            Cek Detail
+                        </button>
                     </div>
-                    <button id="btnClaimNow"
-                        class="w-full bg-gradient-to-r from-purple-500 to-eth-500 hover:from-purple-600 hover:to-eth-600 text-white py-3 rounded-xl font-bold transition shadow-lg shadow-purple-500/30 transform hover:-translate-y-0.5">
-                        Claim Now
-                    </button>
                 </div>
+
+                <!-- STEP 2: Parent Details (Shown after check) -->
+                <div id="claimStep2" class="hidden mt-8 pt-8 border-t border-gray-200 dark:border-slate-700">
+                    <div class="text-center mb-8">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Status Timer Pewaris</p>
+                        <div id="claimCountdown" class="text-4xl font-black text-eth-500 font-mono">
+                            00d 00h 00m 00s
+                        </div>
+                        <p id="claimStatusDesc" class="mt-2 text-sm text-gray-500">Jika timer mencapai 0, ahli waris dapat menarik dana.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 border-b border-gray-100 dark:border-slate-800 pb-2">Daftar Ahli Waris & Alokasi</h4>
+                        <div id="claimBeneficiaries" class="space-y-3">
+                            <!-- Injected via JS -->
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
@@ -335,28 +321,27 @@
         const CONTRACT_ADDRESSES = {
             // 11155111: "0xYourSepoliaAddress", // sepolia
             // 1: "0xYourMainnetAddress", // ETH mainnet
-            31337: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512" // localhost
+            31337: "0x59b670e9fA9D0A427751Af201D676719a970857b" // localhost
         };
-        const CONTRACT_ADDRESS = null; // <-- SELECTED ADDRESS DEPLOYMENT
+        let CONTRACT_ADDRESS = null;
         let CONTRACT_ABI;
 
         async function loadABI() {
-            const response = await fetch("./contract.json");
+            // Kita mock ABI karena file ini diakses langsung, ganti via fetch("abi.json")
+            const response = await fetch("./abi.json").catch(()=>({json:()=>null}));
             const json = await response.json();
-
-            // Hardhat artifact
-            if (json.abi) {
-                CONTRACT_ABI = json.abi;
-            }
-            // jika file hanya berisi array
-            else {
-                CONTRACT_ABI = json;
-            }
+            if (json) CONTRACT_ABI = json;
         }
 
         let provider, signer, contract, currentAccount;
         let planInterval = null;
-        let modalCallback = null;
+        let claimInterval = null;
+        let currentParentForClaim = "";
+        let currentClaimList = [];
+        
+        // Global variables untuk validasi lokal
+        let globalPlanBalance = 0n;
+        let globalPlanAllocated = 0n;
 
         const ui = {
             themeToggle: document.getElementById('themeToggle'),
@@ -372,36 +357,55 @@
             sectionClaim: document.getElementById('sectionClaim'),
             stateNoPlan: document.getElementById('stateNoPlan'),
             stateHasPlan: document.getElementById('stateHasPlan'),
-            inputPeriod: document.getElementById('inputPeriod'),
+            
+            // Plan Form
+            inpM: document.getElementById('inpM'),
+            inpD: document.getElementById('inpD'),
+            inpH: document.getElementById('inpH'),
+            inpMin: document.getElementById('inpMin'),
             btnCreatePlan: document.getElementById('btnCreatePlan'),
+            
+            // Plan Dashboard
             countdownTimer: document.getElementById('countdownTimer'),
-            lblTotalBalance: document.getElementById('lblTotalBalance'),
             lblAllocated: document.getElementById('lblAllocated'),
+            lblUnallocated: document.getElementById('lblUnallocated'),
             btnPing: document.getElementById('btnPing'),
-            inputDeposit: document.getElementById('inputDeposit'),
-            btnDeposit: document.getElementById('btnDeposit'),
+            
+            // Wallet Card 
+            lblTotalBalanceCard: document.getElementById('lblTotalBalanceCard'),
+            btnOpenDeposit: document.getElementById('btnOpenDeposit'),
+            btnOpenWithdraw: document.getElementById('btnOpenWithdraw'),
+
+            // Beneficiaries
             sectionBeneficiaries: document.getElementById('sectionBeneficiaries'),
             listBeneficiaries: document.getElementById('listBeneficiaries'),
             inputBenAddress: document.getElementById('inputBenAddress'),
             inputBenAmount: document.getElementById('inputBenAmount'),
             btnAddBen: document.getElementById('btnAddBen'),
             btnCancelPlan: document.getElementById('btnCancelPlan'),
+            
+            // Claim Tab
             inputClaimAddress: document.getElementById('inputClaimAddress'),
-            btnClaimNow: document.getElementById('btnClaimNow'),
+            btnCheckParent: document.getElementById('btnCheckParent'),
+            claimStep2: document.getElementById('claimStep2'),
+            claimCountdown: document.getElementById('claimCountdown'),
+            claimBeneficiaries: document.getElementById('claimBeneficiaries'),
+            
             loadingTx: document.getElementById('loadingTx'),
 
-            // Modal Elements
+            // Modal
             modal: document.getElementById('customModal'),
             modalIcon: document.getElementById('modalIcon'),
             modalTitle: document.getElementById('modalTitle'),
             modalMessage: document.getElementById('modalMessage'),
+            modalInput: document.getElementById('modalInput'),
             btnModalCancel: document.getElementById('btnModalCancel'),
             btnModalConfirm: document.getElementById('btnModalConfirm')
         };
 
         document.addEventListener("DOMContentLoaded", async () => {
             await loadABI();
-            ui.viewContract.innerText = shortenAddr(CONTRACT_ADDRESS)
+            if(CONTRACT_ADDRESS) ui.viewContract.innerText = shortenAddr(CONTRACT_ADDRESS);
         });
 
         // --- THEME & UI TOGGLES ---
@@ -424,14 +428,22 @@
         ui.tabClaim.addEventListener('click', () => switchTab('claim'));
 
         // --- DIALOG MODAL SYSTEM ---
-        function showDialog({ title, message, type = 'info', onConfirm = null }) {
+        function showDialog({ title, message, type = 'info', showInput = false, onConfirm = null }) {
             ui.modalTitle.innerText = title;
             ui.modalMessage.innerText = message;
-            modalCallback = onConfirm;
 
             ui.modalIcon.className = "w-12 h-12 rounded-full flex items-center justify-center shrink-0";
             ui.btnModalConfirm.className = "px-5 py-2.5 rounded-xl font-medium text-white shadow-lg transition transform hover:-translate-y-0.5";
             ui.btnModalCancel.classList.add('hidden');
+
+            if (showInput) {
+                ui.modalInput.classList.remove('hidden');
+                ui.modalInput.value = '';
+                ui.btnModalCancel.classList.remove('hidden'); 
+                setTimeout(() => ui.modalInput.focus(), 100);
+            } else {
+                ui.modalInput.classList.add('hidden');
+            }
 
             const icons = {
                 success: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`,
@@ -451,42 +463,28 @@
             } else if (type === 'warning') {
                 ui.modalIcon.classList.add('bg-amber-100', 'text-amber-500', 'dark:bg-amber-500/20');
                 ui.btnModalConfirm.classList.add('bg-amber-500', 'hover:bg-amber-600', 'shadow-amber-500/30');
-                ui.btnModalCancel.classList.remove('hidden'); // Show cancel for warnings
+                ui.btnModalCancel.classList.remove('hidden'); 
             } else {
                 ui.modalIcon.classList.add('bg-blue-100', 'text-blue-500', 'dark:bg-blue-500/20');
                 ui.btnModalConfirm.classList.add('bg-blue-500', 'hover:bg-blue-600', 'shadow-blue-500/30');
             }
 
             ui.modal.classList.remove('hidden');
+
+            // Gunakan onclick untuk mencegah event ganda
+            ui.btnModalConfirm.onclick = () => {
+                const val = showInput ? ui.modalInput.value : null;
+                ui.modal.classList.add('hidden');
+                if (onConfirm) onConfirm(val);
+            };
         }
 
-        ui.btnModalConfirm.addEventListener('click', () => {
-            ui.modal.classList.add('hidden');
-            if (modalCallback) modalCallback();
-        });
         ui.btnModalCancel.addEventListener('click', () => ui.modal.classList.add('hidden'));
 
         function copyAddress() {
             navigator.clipboard.writeText(CONTRACT_ADDRESS).then(() => {
                 alert('Address copied!');
             });
-        }
-
-        // Extractor message error dari Ethers
-        function extractErrorMessage(err) {
-            console.error(err);
-            if (err.reason) return err.reason; // Revert reason standard
-            if (err.data && err.data.message) return err.data.message; // Custom error data
-            if (err.info && err.info.error && err.info.error.message) return err.info.error.message;
-            if (err.message) {
-                // Parse MetaMask RPC JSON Wrapper
-                try {
-                    const match = err.message.match(/\{.*\}/);
-                    if (match) return JSON.parse(match[0]).message;
-                } catch (e) { }
-                return err.message;
-            }
-            return "Terjadi kesalahan yang tidak diketahui saat mengeksekusi smart contract.";
         }
 
         // --- UTILS ---
@@ -511,23 +509,22 @@
                 signer = await provider.getSigner();
                 currentAccount = accounts[0];
 
-                // detect network
                 const network = await provider.getNetwork();
                 const chainId = Number(network.chainId);
 
-                // pilih contract address sesuai network
                 CONTRACT_ADDRESS = CONTRACT_ADDRESSES[chainId];
 
                 if (!CONTRACT_ADDRESS) {
                     return showDialog({
                         title: "Network Tidak Didukung",
-                        message: `Network dengan chainId ${chainId} tidak didukung oleh aplikasi ini.`,
+                        message: `Network lokal/sepolia tidak terdeteksi. Pastikan metamask terhubung ke network yang benar.`,
                         type: "error"
                     });
                 }
 
                 contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
 
+                ui.viewContract.innerText = shortenAddr(CONTRACT_ADDRESS);
                 ui.btnConnect.innerText = shortenAddr(currentAccount);
                 ui.viewLanding.classList.add('hidden');
                 ui.viewDashboard.classList.remove('hidden');
@@ -538,11 +535,7 @@
                 window.ethereum.on('chainChanged', () => window.location.reload());
 
             } catch (err) {
-                showDialog({
-                    title: "Koneksi Gagal",
-                    message: "Gagal menghubungkan wallet. " + extractErrorMessage(err),
-                    type: "error"
-                });
+                showDialog({ title: "Koneksi Gagal", message: err.message || "Gagal menghubungkan wallet.", type: "error" });
             }
         }
 
@@ -553,20 +546,25 @@
             try {
                 const plan = await contract.plans(currentAccount);
 
-                if (plan.exists) {
+                if (plan && plan.lastPing > 0) {
                     ui.stateNoPlan.classList.add('hidden');
                     ui.stateHasPlan.classList.remove('hidden');
 
-                    const totalBal = formatEth(plan.totalBalance);
-                    ui.lblTotalBalance.innerText = totalBal;
-                    ui.lblAllocated.innerText = formatEth(plan.totalAllocated);
+                    // Set global vars for validation
+                    globalPlanBalance = plan.totalBalance;
+                    globalPlanAllocated = plan.totalAllocated;
 
-                    if (parseFloat(totalBal) > 0) {
-                        ui.sectionBeneficiaries.classList.remove('hidden');
-                        await loadBeneficiaries();
-                    } else {
-                        ui.sectionBeneficiaries.classList.add('hidden');
-                    }
+                    const totalBal = formatEth(plan.totalBalance);
+                    const totalAlloc = formatEth(plan.totalAllocated);
+                    const unalloc = formatEth(plan.totalBalance - plan.totalAllocated);
+
+                    // Update UI components
+                    ui.lblTotalBalanceCard.innerText = totalBal;
+                    ui.lblAllocated.innerText = totalAlloc;
+                    ui.lblUnallocated.innerText = parseFloat(unalloc) < 0 ? "0.0" : unalloc;
+
+                    ui.sectionBeneficiaries.classList.remove('hidden');
+                    await loadBeneficiaries();
 
                     startCountdown(Number(plan.lastPing), Number(plan.inactivityPeriod));
                 } else {
@@ -583,26 +581,44 @@
             const list = await contract.getBeneficiaries(currentAccount);
             ui.listBeneficiaries.innerHTML = '';
 
-            if (list.length === 0) {
-                ui.listBeneficiaries.innerHTML = '<p class="text-sm text-gray-500 italic text-center">Belum ada beneficiary, tambahkan di bawah.</p>';
+            if (list.length === 0 || list[0].length === 0) {
+                ui.listBeneficiaries.innerHTML = '<p class="text-sm text-gray-500 italic text-center">Belum ada ahli waris, tambahkan di bawah.</p>';
                 return;
             }
 
-            list.forEach((b, i) => {
-                const isClaimed = b.claimed ? '<span class="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded">CLAIMED</span>' : '<span class="text-xs font-bold text-gray-400 bg-gray-500/10 px-2 py-1 rounded">WAITING</span>';
+            const wallets = list[0];
+            const amounts = list[1];
+            const statuses = list[2];
+
+            for (let i = 0; i < wallets.length; i++) {
+                const wallet = wallets[i];
+                const amount = amounts[i];
+                const isClaimed = statuses[i];
+
+                const statusBadge = isClaimed 
+                    ? '<span class="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded">CLAIMED</span>' 
+                    : '<span class="text-xs font-bold text-gray-400 bg-gray-500/10 px-2 py-1 rounded">WAITING</span>';
+
+                const removeBtn = isClaimed 
+                    ? '' 
+                    : `<button onclick="removeBeneficiary('${wallet}')" title="Hapus" class="text-gray-400 hover:text-red-500 transition p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-500/10"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>`;
+
                 ui.listBeneficiaries.innerHTML += `
                     <div class="flex items-center justify-between p-3 bg-white dark:bg-slate-800 rounded-lg border border-gray-100 dark:border-slate-700">
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500 flex items-center justify-center text-xs font-bold text-white shadow">${i + 1}</div>
                             <div>
-                                <p class="text-sm font-mono">${shortenAddr(b.wallet)}</p>
-                                <p class="text-xs font-bold text-eth-500">${formatEth(b.amount)} ETH</p>
+                                <p class="text-sm font-mono">${shortenAddr(wallet)}</p>
+                                <p class="text-xs font-bold text-eth-500">${formatEth(amount)} ETH</p>
                             </div>
                         </div>
-                        <div>${isClaimed}</div>
+                        <div class="flex items-center gap-3">
+                            ${statusBadge}
+                            ${removeBtn}
+                        </div>
                     </div>
                 `;
-            });
+            }
         }
 
         function startCountdown(lastPing, inactivityPeriod) {
@@ -616,7 +632,7 @@
 
                 if (distance < 0) {
                     clearInterval(planInterval);
-                    ui.countdownTimer.innerText = "EXPIRED";
+                    ui.countdownTimer.innerText = "00d 00h 00m 00s";
                     ui.countdownTimer.classList.replace('text-transparent', 'text-red-500');
                     return;
                 }
@@ -631,38 +647,88 @@
         }
 
         // --- TRANSACTION HANDLER ---
-        async function runTx(txPromise, successMessage) {
+        async function runTx(txPromise, successMessage, onRefreshCallback = null) {
             try {
                 showLoading(true);
+
                 const tx = await txPromise();
                 await tx.wait();
+                
                 await loadPlanData();
+                if(onRefreshCallback) await onRefreshCallback();
 
-                ui.inputDeposit.value = '';
                 ui.inputBenAddress.value = '';
                 ui.inputBenAmount.value = '';
 
                 if (successMessage) {
-                    showDialog({ title: "Success", message: successMessage, type: "success" });
+                    showDialog({ title: "Berhasil", message: successMessage, type: "success" });
                 }
             } catch (err) {
-                showDialog({ title: "Transaction Failed", message: extractErrorMessage(err), type: "error" });
+                console.error(err);
+                showDialog({ title: "Transaksi Gagal", message: "Gagal mengeksekusi kontrak. Pastikan syarat terpenuhi atau gas cukup.", type: "error" });
             } finally {
                 showLoading(false);
             }
         }
 
-        ui.btnCreatePlan.addEventListener('click', () => {
-            const days = ui.inputPeriod.value;
-            if (!days || days <= 0) return showDialog({ title: "Invalid Input", message: "Masukkan periode (hari) yang valid!", type: "info" });
-            const seconds = days * 24 * 60 * 60;
-            runTx(() => contract.createPlan(seconds), "Plan berhasil dibuat! Silakan deposit ETH sekarang.");
+        // --- WALLET CARD ACTIONS (DEPOSIT / WITHDRAW) ---
+        ui.btnOpenDeposit.addEventListener('click', () => {
+            showDialog({
+                title: "Deposit ETH",
+                message: "Masukkan nominal ETH untuk ditambahkan ke dalam Balance Plan Anda.",
+                type: "info",
+                showInput: true,
+                onConfirm: (val) => {
+                    if (!val || Number(val) <= 0) {
+                        return showDialog({ title: "Invalid Input", message: "Nominal deposit tidak boleh kosong atau 0.", type: "warning" });
+                    }
+                    runTx(() => contract.deposit({ value: parseEth(val) }), "Deposit ETH berhasil ditambahkan ke dalam plan.");
+                }
+            });
         });
 
-        ui.btnDeposit.addEventListener('click', () => {
-            const val = ui.inputDeposit.value;
-            if (!val || val <= 0) return showDialog({ title: "Invalid Input", message: "Jumlah deposit harus lebih dari 0", type: "info" });
-            runTx(() => contract.deposit({ value: parseEth(val) }), "Deposit ETH berhasil ditambahkan ke dalam plan.");
+        ui.btnOpenWithdraw.addEventListener('click', () => {
+            showDialog({
+                title: "Withdraw ETH",
+                message: "Masukkan nominal ETH yang ingin Anda tarik kembali ke dompet.",
+                type: "warning",
+                showInput: true,
+                onConfirm: (val) => {
+                    if (!val || Number(val) <= 0) {
+                        return showDialog({ title: "Invalid Input", message: "Nominal penarikan tidak boleh kosong atau 0.", type: "warning" });
+                    }
+
+                    const withdrawAmountWei = parseEth(val);
+
+                    // Validasi: Amount > Total Balance
+                    if (withdrawAmountWei > globalPlanBalance) {
+                        return showDialog({ title: "Gagal", message: "Nominal melebihi total balance plan Anda.", type: "error" });
+                    }
+
+                    // Validasi: Affects Allocation (Sisa balance < Total dialokasikan ke ahli waris)
+                    if ((globalPlanBalance - withdrawAmountWei) < globalPlanAllocated) {
+                        return showDialog({ title: "Gagal (Affects Allocation)", message: "Penarikan ditolak karena sisa balance tidak akan cukup untuk menutupi alokasi ahli waris Anda saat ini. Kurangi nominal penarikan atau hapus ahli waris terlebih dahulu.", type: "error" });
+                    }
+
+                    runTx(() => contract.withdraw(withdrawAmountWei), "Penarikan dana berhasil.");
+                }
+            });
+        });
+
+        // --- MY PLAN ACTIONS ---
+        ui.btnCreatePlan.addEventListener('click', () => {
+            const m = parseInt(ui.inpM.value) || 0;
+            const d = parseInt(ui.inpD.value) || 0;
+            const h = parseInt(ui.inpH.value) || 0;
+            const min = parseInt(ui.inpMin.value) || 0;
+
+            const totalSeconds = (m * 30 * 24 * 60 * 60) + (d * 24 * 60 * 60) + (h * 60 * 60) + (min * 60);
+
+            if (totalSeconds <= 0) {
+                return showDialog({ title: "Invalid Input", message: "Total waktu heartbeat harus lebih dari 0 menit!", type: "warning" });
+            }
+
+            runTx(() => contract.createPlan(totalSeconds), "Plan berhasil dibuat! Silakan deposit ETH sekarang.");
         });
 
         ui.btnPing.addEventListener('click', () => {
@@ -675,8 +741,25 @@
             if (!ethers.isAddress(addr) || !amt || amt <= 0) {
                 return showDialog({ title: "Invalid Input", message: "Wallet address / amount tidak valid.", type: "error" });
             }
-            runTx(() => contract.addBeneficiary(addr, parseEth(amt)), "Beneficiary berhasil ditambahkan.");
+            
+            const amtWei = parseEth(amt);
+            if(globalPlanAllocated + amtWei > globalPlanBalance) {
+                 return showDialog({ title: "Gagal", message: "Alokasi melebihi sisa balance yang tersedia.", type: "error" });
+            }
+
+            runTx(() => contract.addBeneficiary(addr, amtWei), "Ahli waris berhasil ditambahkan.");
         });
+
+        window.removeBeneficiary = (walletAddress) => {
+            showDialog({
+                title: "Hapus Ahli Waris?",
+                message: `Anda yakin ingin menghapus alokasi untuk wallet: ${shortenAddr(walletAddress)}?`,
+                type: "warning",
+                onConfirm: () => {
+                    runTx(() => contract.removeBeneficiary(walletAddress), "Ahli waris berhasil dihapus.");
+                }
+            });
+        };
 
         ui.btnCancelPlan.addEventListener('click', () => {
             showDialog({
@@ -687,12 +770,131 @@
             });
         });
 
-        ui.btnClaimNow.addEventListener('click', async () => {
-            const ownerAddr = ui.inputClaimAddress.value;
-            if (!ethers.isAddress(ownerAddr)) return showDialog({ title: "Invalid Address", message: "Please input valid address parent.", type: "error" });
+        // --- CLAIM TAB ACTIONS ---
+        ui.btnCheckParent.addEventListener('click', async () => {
+            const parentAddr = ui.inputClaimAddress.value;
+            if (!ethers.isAddress(parentAddr)) return showDialog({ title: "Invalid Address", message: "Masukkan alamat Pewaris yang valid.", type: "warning" });
 
-            runTx(() => contract.claim(ownerAddr), "Klaim berhasil! Dana telah dikirim ke wallet-mu.");
+            showLoading(true);
+            try {
+                const plan = await contract.plans(parentAddr);
+                
+                if (plan.lastPing == 0) {
+                    ui.claimStep2.classList.add('hidden');
+                    if (claimInterval) clearInterval(claimInterval);
+                    return showDialog({ title: "Tidak Ditemukan", message: "Plan warisan tidak ditemukan untuk address tersebut.", type: "error" });
+                }
+
+                currentParentForClaim = parentAddr;
+                currentClaimList = await contract.getBeneficiaries(parentAddr);
+                ui.claimStep2.classList.remove('hidden');
+
+                startClaimCountdown(Number(plan.lastPing), Number(plan.inactivityPeriod));
+
+            } catch (err) {
+                console.error(err);
+                showDialog({ title: "Gagal Mengambil Data", message: "Terjadi kesalahan saat mengecek blockchain.", type: "error" });
+            } finally {
+                showLoading(false);
+            }
         });
+
+        function renderClaimList(isInactive) {
+            ui.claimBeneficiaries.innerHTML = '';
+            
+            if(currentClaimList.length === 0 || currentClaimList[0].length === 0){
+                 ui.claimBeneficiaries.innerHTML = '<p class="text-sm text-gray-500 italic">Pewaris belum mendaftarkan ahli waris satupun.</p>';
+                 return;
+            }
+
+            const wallets = currentClaimList[0];
+            const amounts = currentClaimList[1];
+            const statuses = currentClaimList[2];
+
+            for (let i = 0; i < wallets.length; i++) {
+                const wallet = wallets[i];
+                const amount = amounts[i];
+                const claimed = statuses[i];
+                
+                const isMe = wallet.toLowerCase() === currentAccount.toLowerCase();
+                let statusHtml = '';
+
+                if (claimed) {
+                    statusHtml = `<span class="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-3 py-1.5 rounded-lg">SUDAH DIKLAIM</span>`;
+                } else if (isMe && isInactive) {
+                    statusHtml = `<button onclick="executeClaim()" class="bg-gradient-to-r from-purple-500 to-eth-500 hover:from-purple-600 hover:to-eth-600 text-white px-5 py-2 rounded-xl text-sm font-bold shadow-lg shadow-purple-500/30 transition transform hover:scale-105">Tarik Dana</button>`;
+                } else if (isMe && !isInactive) {
+                    statusHtml = `<span class="text-xs font-bold text-amber-500 bg-amber-500/10 px-3 py-1.5 rounded-lg animate-pulse">MENUNGGU TIMER</span>`;
+                } else {
+                    statusHtml = `<span class="text-xs font-bold text-gray-400 bg-gray-500/10 px-3 py-1.5 rounded-lg">BELUM DIKLAIM</span>`;
+                }
+
+                ui.claimBeneficiaries.innerHTML += `
+                    <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-800 rounded-xl border ${isMe ? 'border-purple-500 shadow-md ring-1 ring-purple-500/50' : 'border-gray-100 dark:border-slate-700'} transition-all">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full ${isMe ? 'bg-purple-500 text-white shadow-lg shadow-purple-500/20' : 'bg-gray-100 dark:bg-slate-700 text-gray-500'} flex items-center justify-center text-sm font-bold">${i + 1}</div>
+                            <div>
+                                <p class="text-sm font-mono ${isMe ? 'font-bold text-purple-600 dark:text-purple-400' : 'text-gray-500'}">${shortenAddr(wallet)} ${isMe ? '<span class="ml-1 text-xs bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-300 px-2 py-0.5 rounded-full">Akun Kamu</span>' : ''}</p>
+                                <p class="text-sm font-bold text-eth-500 mt-0.5">${formatEth(amount)} ETH</p>
+                            </div>
+                        </div>
+                        <div>${statusHtml}</div>
+                    </div>
+                `;
+            }
+        }
+
+        function startClaimCountdown(lastPing, inactivityPeriod) {
+            if (claimInterval) clearInterval(claimInterval);
+
+            const targetTime = (lastPing + inactivityPeriod) * 1000;
+            let isInactive = false;
+
+            const updateTimerUI = () => {
+                const now = new Date().getTime();
+                const distance = targetTime - now;
+
+                if (distance <= 0) {
+                    isInactive = true;
+                    ui.claimCountdown.innerText = "00:00:00 (EXPIRED)";
+                    ui.claimCountdown.className = "text-4xl font-black text-emerald-500 font-mono";
+                    clearInterval(claimInterval);
+                    renderClaimList(true); 
+                } else {
+                    isInactive = false;
+                    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const s = Math.floor((distance % (1000 * 60)) / 1000);
+                    ui.claimCountdown.innerText = `${d}d ${h}h ${m}m ${s}s`;
+                }
+            };
+
+            updateTimerUI(); 
+            renderClaimList(isInactive); 
+
+            if (!isInactive) claimInterval = setInterval(updateTimerUI, 1000);
+        }
+
+        window.executeClaim = async () => {
+            if(!currentParentForClaim) return;
+            
+            showDialog({
+                title: "Konfirmasi Klaim",
+                message: "Timer pewaris sudah habis. Yakin ingin menarik dana warisanmu sekarang?",
+                type: "info",
+                onConfirm: () => {
+                    runTx(
+                        () => contract.claim(currentParentForClaim), 
+                        "Klaim warisan berhasil! Dana telah masuk ke wallet-mu.",
+                        async () => {
+                            currentClaimList = await contract.getBeneficiaries(currentParentForClaim);
+                            renderClaimList(true);
+                        }
+                    );
+                }
+            });
+        };
 
     </script>
 </body>

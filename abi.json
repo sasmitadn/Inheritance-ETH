@@ -1,0 +1,384 @@
+[
+	{
+		"inputs": [],
+		"name": "AffectsAllocation",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "AlreadyClaimed",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "ExceedsBalance",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InsufficientBalance",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidAddress",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidAmount",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "NoPlan",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "NotBeneficiary",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "OwnerActive",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "PlanExists",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "TransferFailed",
+		"type": "error"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "beneficiary",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "BeneficiaryAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "beneficiary",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "BeneficiaryRemoved",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "beneficiary",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "Claimed",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "InheritancePlanned",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "Ping",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_wallet",
+				"type": "address"
+			},
+			{
+				"internalType": "uint88",
+				"name": "_amount",
+				"type": "uint88"
+			}
+		],
+		"name": "addBeneficiary",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "beneficiaries",
+		"outputs": [
+			{
+				"internalType": "uint88",
+				"name": "amount",
+				"type": "uint88"
+			},
+			{
+				"internalType": "bool",
+				"name": "claimed",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "beneficiaryWallets",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "cancelPlan",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"name": "claim",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint40",
+				"name": "_inactivityPeriod",
+				"type": "uint40"
+			}
+		],
+		"name": "createPlan",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "deposit",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"name": "getBeneficiaries",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "wallets",
+				"type": "address[]"
+			},
+			{
+				"internalType": "uint88[]",
+				"name": "amounts",
+				"type": "uint88[]"
+			},
+			{
+				"internalType": "bool[]",
+				"name": "claimStatus",
+				"type": "bool[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"name": "isInactive",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "ping",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "plans",
+		"outputs": [
+			{
+				"internalType": "uint40",
+				"name": "lastPing",
+				"type": "uint40"
+			},
+			{
+				"internalType": "uint40",
+				"name": "inactivityPeriod",
+				"type": "uint40"
+			},
+			{
+				"internalType": "uint88",
+				"name": "totalBalance",
+				"type": "uint88"
+			},
+			{
+				"internalType": "uint88",
+				"name": "totalAllocated",
+				"type": "uint88"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_wallet",
+				"type": "address"
+			}
+		],
+		"name": "removeBeneficiary",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint88",
+				"name": "_amount",
+				"type": "uint88"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
