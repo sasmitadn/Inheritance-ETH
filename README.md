@@ -17,9 +17,17 @@ Jika gagal, delete folder ignition/deployments dan cache
 
 ## Cara Running dari Remix IDE
 
+```
+npx hardhat node
+```
+
 1. Deploy ke network dev hardhat
 2. copy abi ke abi.json
 3. copy contract address
+
+Untuk Jalankan index-usd:
+1. Deploy mockusdt.sol dan masukan abi ke USD/abi.json
+2. abi-usd.json isi dengan abi dari smart contract InheritanceUsd.sol
 
 Enjoy!
 
@@ -29,3 +37,4 @@ Enjoy!
 - Fix bug cancel plan will return all available asset
 - Withdrawl with custom amount
 - UI/UX Update
+- Support IERC20 Token
